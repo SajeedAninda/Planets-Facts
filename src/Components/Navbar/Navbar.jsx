@@ -22,7 +22,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="bg-[#070724] h-[13vh] border-b border-gray-400 flex items-center">
+        <div className="bg-[#070724] h-[14vh] flex items-center">
             <div className="w-[95%] mx-auto flex justify-between items-center">
                 <div className="logo">
                     <p className="text-[28px] text-white font-antonio font-semibold">
@@ -30,14 +30,14 @@ const Navbar = () => {
                     </p>
                 </div>
 
-                <div className="menu flex gap-12">
+                <div className="menu flex gap-4">
                     {items?.map((item) => (
                         <div
                             key={item.name}
-                            className="relative group flex-1 text-center uppercase font-spartan text-[13px] text-[#bfc2c7] font-bold tracking-wider cursor-pointer transition duration-75 ease-in-out"
+                            className="relative group flex-1 text-center uppercase font-spartan text-[13px] text-[#bfc2c7] font-bold tracking-wider cursor-pointer transition duration-75 ease-in-out h-full p-6"
                         >
                             <div
-                                className="absolute inset-x-0 -top-8 h-[5px] w-0 bg-transparent group-hover:w-full group-hover:bg-current transition-all duration-300 ease-in-out"
+                                className="absolute inset-x-0 -top-2 h-[5px] w-0 bg-transparent group-hover:w-full group-hover:bg-current transition-all duration-300 ease-in-out"
                                 style={{
                                     backgroundColor: colors[item.name] || '#bfc2c7',
                                 }}
