@@ -4,21 +4,21 @@ body {
 }
 
 .homebg {
-    background-image: url(/src/assets/background-stars.svg);
-    background-size: cover;
+    background-image: url('/src/assets/background-stars.svg');
+    background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    animation: glitter 5s infinite ease-in-out alternate;
+    animation: glitter 15s infinite ease-in-out alternate;
 }
 
-/* @keyframes glitter {
+@keyframes glitter {
     0% {
-        transform: scale(1);
+        background-size: 100%;
     }
     50% {
-        transform: scale(1.05);
+        background-size: 170%;
     }
     100% {
-        transform: scale(1);
+        background-size: 100%;
     }
-} */
+}

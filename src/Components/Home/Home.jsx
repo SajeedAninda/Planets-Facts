@@ -5,6 +5,7 @@ import sourceIcon from "../../assets/icon-source.svg";
 const Home = () => {
     const [earthData, setEarthData] = useState(null);
     const [activeButton, setActiveButton] = useState("overview");
+    const [animationKey, setAnimationKey] = useState(0);
 
     useEffect(() => {
         fetch('/data.json')
@@ -15,7 +16,7 @@ const Home = () => {
             })
             .catch(error => console.error('Error fetching data:', error));
     }, []);
-    
+
     const getActiveContent = () => {
         if (!earthData) return {};
 
@@ -25,33 +26,53 @@ const Home = () => {
                     text: earthData.overview.content,
                     source: earthData.overview.source,
                     image: earthData.images.planet,
+                    overlayImage: null,
                 };
             case "internal":
                 return {
                     text: earthData.structure.content,
                     source: earthData.structure.source,
                     image: earthData.images.internal,
+                    overlayImage: null,
                 };
             case "geology":
                 return {
                     text: earthData.geology.content,
                     source: earthData.geology.source,
-                    image: earthData.images.geology,
+                    image: earthData.images.planet,
+                    overlayImage: earthData.images.geology,
                 };
             default:
                 return {};
         }
     };
 
-    const { text, source, image } = getActiveContent();
+    const { text, source, image, overlayImage } = getActiveContent();
+
+    const handleButtonClick = (buttonType) => {
+        setActiveButton(buttonType);
+        setAnimationKey((prevKey) => prevKey + 1);
+    };
 
     return (
         <div className='h-fit bg-[#070724] homebg py-20'>
             <div className='w-[80%] mx-auto'>
                 {earthData ? (
-                    <div className='flex'>
-                        <div className='imgDiv w-[65%] px-10'>
-                            <img src={image} alt="Earth" />
+                    <div className='flex gap-6'>
+                        <div className='relative imgDiv w-[65%] px-10'>
+                            <img
+                                src={image}
+                                alt="Earth"
+                                key={`${image}-${animationKey}`} 
+                                className="w-[80%] mx-auto animate-fade-scale"
+                            />
+                            {overlayImage && (
+                                <img
+                                    src={overlayImage}
+                                    alt="Geology Overlay"
+                                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[150px] "
+                                />
+                            )}
                         </div>
 
                         <div className='textDiv w-[35%] text-white'>
@@ -72,36 +93,33 @@ const Home = () => {
 
                             <div className="menus font-antonio mt-6">
                                 <button
-                                    onClick={() => setActiveButton("overview")}
-                                    className={`py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 ${
-                                        activeButton === "overview"
+                                    onClick={() => handleButtonClick("overview")}
+                                    className={`py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 ${activeButton === "overview"
                                             ? "bg-[#6d2ed5] text-white border-none"
                                             : "bg-transparent border-gray-500 hover:bg-gray-800"
-                                    }`}
+                                        }`}
                                 >
                                     <p className='text-gray-400 tracking-widest font-bold'>01</p>
                                     <p className='text-white text-[18px] uppercase tracking-widest font-bold'>Overview</p>
                                 </button>
 
                                 <button
-                                    onClick={() => setActiveButton("internal")}
-                                    className={`py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 ${
-                                        activeButton === "internal"
+                                    onClick={() => handleButtonClick("internal")}
+                                    className={`py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 ${activeButton === "internal"
                                             ? "bg-[#6d2ed5] text-white border-none"
                                             : "bg-transparent border-gray-500 hover:bg-gray-800"
-                                    }`}
+                                        }`}
                                 >
                                     <p className='text-gray-400 tracking-widest font-bold'>02</p>
                                     <p className='text-white text-[18px] uppercase tracking-widest font-bold'>Internal Structure</p>
                                 </button>
 
                                 <button
-                                    onClick={() => setActiveButton("geology")}
-                                    className={`py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 ${
-                                        activeButton === "geology"
+                                    onClick={() => handleButtonClick("geology")}
+                                    className={`py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 ${activeButton === "geology"
                                             ? "bg-[#6d2ed5] text-white border-none"
                                             : "bg-transparent border-gray-500 hover:bg-gray-800"
-                                    }`}
+                                        }`}
                                 >
                                     <p className='text-gray-400 tracking-widest font-bold'>03</p>
                                     <p className='text-white text-[18px] uppercase tracking-widest font-bold'>Surface Geology</p>
