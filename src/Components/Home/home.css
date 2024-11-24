@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .homebg {
@@ -9,11 +9,9 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     animation: glitter 5s infinite ease-in-out alternate;
-    width: 100vw;
-    height: 100vh;
 }
 
-@keyframes glitter {
+/* @keyframes glitter {
     0% {
         transform: scale(1);
     }
@@ -23,4 +21,4 @@ body {
     100% {
         transform: scale(1);
     }
-}
+} */
