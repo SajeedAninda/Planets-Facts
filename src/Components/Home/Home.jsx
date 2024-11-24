@@ -40,31 +40,31 @@ const Home = () => {
                                 </a>
                             </span>
 
-                            <div className="menus font-antonio mt-4">
-                                <button className='py-4 px-8 flex gap-8 items-center bg-transparent border border-gray-500 w-full mb-2'>
+                            <div className="menus font-antonio mt-6">
+                                <button className='py-3 px-8 flex gap-8 items-center bg-transparent border border-gray-500 w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 hover:bg-gray-800 '>
                                     <p className='text-gray-400 tracking-widest font-bold'>
                                         01
                                     </p>
-                                    <p className='text-white text-[20px] tracking-widest font-bold'>
+                                    <p className='text-white text-[18px] uppercase tracking-widest font-bold'>
                                         Overview
                                     </p>
                                 </button>
 
-                                <button className='py-4 px-8 flex gap-8 items-center bg-transparent border border-gray-500 w-full mb-2'>
+                                <button className='py-3 px-8 flex gap-8 items-center bg-transparent border border-gray-500 w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 hover:bg-gray-800 '>
                                     <p className='text-gray-400 tracking-widest font-bold'>
-                                        01
+                                        02
                                     </p>
-                                    <p className='text-white text-[20px] tracking-widest font-bold'>
-                                        Overview
+                                    <p className='text-white text-[18px] uppercase tracking-widest font-bold'>
+                                        Internal Structure
                                     </p>
                                 </button>
 
-                                <button className='py-4 px-8 flex gap-8 items-center bg-transparent border border-gray-500 w-full mb-2'>
+                                <button className='py-3 px-8 flex gap-8 items-center bg-transparent border border-gray-500 w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 hover:bg-gray-800 '>
                                     <p className='text-gray-400 tracking-widest font-bold'>
-                                        01
+                                        03
                                     </p>
-                                    <p className='text-white text-[20px] tracking-widest font-bold'>
-                                        Overview
+                                    <p className='text-white text-[18px] uppercase tracking-widest font-bold'>
+                                        Surface Geology
                                     </p>
                                 </button>
                             </div>
