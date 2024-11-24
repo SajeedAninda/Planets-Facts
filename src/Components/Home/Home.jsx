@@ -15,6 +15,35 @@ const Home = () => {
             })
             .catch(error => console.error('Error fetching data:', error));
     }, []);
+    
+    const getActiveContent = () => {
+        if (!earthData) return {};
+
+        switch (activeButton) {
+            case "overview":
+                return {
+                    text: earthData.overview.content,
+                    source: earthData.overview.source,
+                    image: earthData.images.planet,
+                };
+            case "internal":
+                return {
+                    text: earthData.structure.content,
+                    source: earthData.structure.source,
+                    image: earthData.images.internal,
+                };
+            case "geology":
+                return {
+                    text: earthData.geology.content,
+                    source: earthData.geology.source,
+                    image: earthData.images.geology,
+                };
+            default:
+                return {};
+        }
+    };
+
+    const { text, source, image } = getActiveContent();
 
     return (
         <div className='h-fit bg-[#070724] homebg py-20'>
@@ -22,15 +51,20 @@ const Home = () => {
                 {earthData ? (
                     <div className='flex'>
                         <div className='imgDiv w-[65%] px-10'>
-                            <img src={earthData.images.planet} alt="Earth" />
+                            <img src={image} alt="Earth" />
                         </div>
 
                         <div className='textDiv w-[35%] text-white'>
                             <h1 className='text-[80px] font-antonio uppercase mb-4'>{earthData.name}</h1>
-                            <p className='font-spartan leading-7 text-[#bfc2c7] font-semibold mb-4'>{earthData.overview.content}</p>
+                            <p className='font-spartan leading-7 text-[#bfc2c7] font-semibold mb-4'>{text}</p>
                             <span className='flex gap-2 items-center text-gray-500 font-semibold mb-4'>
                                 <p>Source:</p>
-                                <a href={earthData.overview.source} className='font-bold underline text-gray-400 flex gap-1 items-center' target="_blank">
+                                <a
+                                    href={source}
+                                    className='font-bold underline text-gray-400 flex gap-1 items-center'
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     Wikipedia
                                     <img src={sourceIcon} alt="" />
                                 </a>
