@@ -13,7 +13,7 @@ const Navbar = () => {
     const colors = {
         Mercury: '#58a6ff',
         Venus: '#ffac3b',
-        Earth: '#8358ff',
+        Earth: '#6d2ed5',
         Mars: '#ff6a3b',
         Jupiter: '#e57300',
         Saturn: '#ffbf47',
