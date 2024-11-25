@@ -58,73 +58,79 @@ const Home = () => {
         <div className='h-fit bg-[#070724] homebg py-20'>
             <div className='w-[80%] mx-auto'>
                 {earthData ? (
-                    <div className='flex gap-6'>
-                        <div className='relative imgDiv w-[65%] px-10'>
-                            <img
-                                src={image}
-                                alt="Earth"
-                                key={`${image}-${animationKey}`} 
-                                className="w-[80%] mx-auto animate-fade-scale"
-                            />
-                            {overlayImage && (
+                    <div>
+                        <div className='topDiv flex gap-6'>
+                            <div className='relative imgDiv w-[65%] px-10'>
                                 <img
-                                    src={overlayImage}
-                                    alt="Geology Overlay"
-                                    className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[150px] "
+                                    src={image}
+                                    alt="Earth"
+                                    key={`${image}-${animationKey}`}
+                                    className="w-[80%] mx-auto animate-fade-scale"
                                 />
-                            )}
+                                {overlayImage && (
+                                    <img
+                                        src={overlayImage}
+                                        alt="Geology Overlay"
+                                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[150px] "
+                                    />
+                                )}
+                            </div>
+
+                            <div className='textDiv w-[35%] text-white'>
+                                <h1 className='text-[80px] font-antonio uppercase mb-4'>{earthData.name}</h1>
+                                <p className='font-spartan leading-7 text-[#bfc2c7] font-semibold mb-4'>{text}</p>
+                                <span className='flex gap-2 items-center text-gray-500 font-semibold mb-4'>
+                                    <p>Source:</p>
+                                    <a
+                                        href={source}
+                                        className='font-bold underline text-gray-400 flex gap-1 items-center'
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Wikipedia
+                                        <img src={sourceIcon} alt="" />
+                                    </a>
+                                </span>
+
+                                <div className="menus font-antonio mt-6">
+                                    <button
+                                        onClick={() => handleButtonClick("overview")}
+                                        className={`py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 ${activeButton === "overview"
+                                            ? "bg-[#6d2ed5] text-white border-none"
+                                            : "bg-transparent border-gray-500 hover:bg-gray-800"
+                                            }`}
+                                    >
+                                        <p className='text-gray-400 tracking-widest font-bold'>01</p>
+                                        <p className='text-white text-[18px] uppercase tracking-widest font-bold'>Overview</p>
+                                    </button>
+
+                                    <button
+                                        onClick={() => handleButtonClick("internal")}
+                                        className={`py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 ${activeButton === "internal"
+                                            ? "bg-[#6d2ed5] text-white border-none"
+                                            : "bg-transparent border-gray-500 hover:bg-gray-800"
+                                            }`}
+                                    >
+                                        <p className='text-gray-400 tracking-widest font-bold'>02</p>
+                                        <p className='text-white text-[18px] uppercase tracking-widest font-bold'>Internal Structure</p>
+                                    </button>
+
+                                    <button
+                                        onClick={() => handleButtonClick("geology")}
+                                        className={`py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 ${activeButton === "geology"
+                                            ? "bg-[#6d2ed5] text-white border-none"
+                                            : "bg-transparent border-gray-500 hover:bg-gray-800"
+                                            }`}
+                                    >
+                                        <p className='text-gray-400 tracking-widest font-bold'>03</p>
+                                        <p className='text-white text-[18px] uppercase tracking-widest font-bold'>Surface Geology</p>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className='textDiv w-[35%] text-white'>
-                            <h1 className='text-[80px] font-antonio uppercase mb-4'>{earthData.name}</h1>
-                            <p className='font-spartan leading-7 text-[#bfc2c7] font-semibold mb-4'>{text}</p>
-                            <span className='flex gap-2 items-center text-gray-500 font-semibold mb-4'>
-                                <p>Source:</p>
-                                <a
-                                    href={source}
-                                    className='font-bold underline text-gray-400 flex gap-1 items-center'
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Wikipedia
-                                    <img src={sourceIcon} alt="" />
-                                </a>
-                            </span>
+                        <div className="bottomDiv">
 
-                            <div className="menus font-antonio mt-6">
-                                <button
-                                    onClick={() => handleButtonClick("overview")}
-                                    className={`py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 ${activeButton === "overview"
-                                            ? "bg-[#6d2ed5] text-white border-none"
-                                            : "bg-transparent border-gray-500 hover:bg-gray-800"
-                                        }`}
-                                >
-                                    <p className='text-gray-400 tracking-widest font-bold'>01</p>
-                                    <p className='text-white text-[18px] uppercase tracking-widest font-bold'>Overview</p>
-                                </button>
-
-                                <button
-                                    onClick={() => handleButtonClick("internal")}
-                                    className={`py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 ${activeButton === "internal"
-                                            ? "bg-[#6d2ed5] text-white border-none"
-                                            : "bg-transparent border-gray-500 hover:bg-gray-800"
-                                        }`}
-                                >
-                                    <p className='text-gray-400 tracking-widest font-bold'>02</p>
-                                    <p className='text-white text-[18px] uppercase tracking-widest font-bold'>Internal Structure</p>
-                                </button>
-
-                                <button
-                                    onClick={() => handleButtonClick("geology")}
-                                    className={`py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500 ${activeButton === "geology"
-                                            ? "bg-[#6d2ed5] text-white border-none"
-                                            : "bg-transparent border-gray-500 hover:bg-gray-800"
-                                        }`}
-                                >
-                                    <p className='text-gray-400 tracking-widest font-bold'>03</p>
-                                    <p className='text-white text-[18px] uppercase tracking-widest font-bold'>Surface Geology</p>
-                                </button>
-                            </div>
                         </div>
                     </div>
                 ) : (
