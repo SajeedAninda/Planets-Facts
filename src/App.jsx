@@ -5,14 +5,14 @@ import Navbar from "./Components/Navbar/Navbar";
 function App() {
     const [selectedPlanet, setSelectedPlanet] = useState("Earth");
     const colors = {
-        Mercury: '#58a6ff',
-        Venus: '#ffac3b',
+        Mercury: '#419ebb',
+        Venus: '#eda249',
         Earth: '#6d2ed5',
-        Mars: '#ff6a3b',
-        Jupiter: '#e57300',
-        Saturn: '#ffbf47',
-        Uranus: '#50d7c2',
-        Neptune: '#3b89ff',
+        Mars: '#d14c32',
+        Jupiter: '#d83a34',
+        Saturn: '#cd5120',
+        Uranus: '#1ec1a2',
+        Neptune: '#2d68f0',
     };
     const selectedColor = colors[selectedPlanet] || "#6d2ed5";
 
