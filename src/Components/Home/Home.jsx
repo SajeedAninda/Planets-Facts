@@ -129,8 +129,46 @@ const Home = () => {
                             </div>
                         </div>
 
-                        <div className="bottomDiv">
+                        <div className="bottomDiv mt-12 grid grid-cols-1 lg:grid-cols-4 font-antonio gap-8">
+                            <div className='border border-gray-500 p-6'>
+                                <p className='text-gray-400 tracking-wide uppercase font-bold'>
+                                    Rotation Time
+                                </p>
+                                <p className='text-white mt-2 text-[40px] uppercase tracking-wide font-bold'>
+                                    {earthData?.rotation ?
+                                        `${Math.round(parseFloat(earthData.rotation))} ${earthData.rotation.replace(/[\d.]+/, '').trim()}`
+                                        : ''}
+                                </p>
+                            </div>
 
+                            <div className='border border-gray-500 p-6'>
+                                <p className='text-gray-400 tracking-wide uppercase font-bold'>
+                                Revolution Time
+                                </p>
+                                <p className='text-white mt-2 text-[40px] uppercase tracking-wide font-bold'>
+                                    {earthData?.revolution ?
+                                        `${Math.round(parseFloat(earthData.revolution))} ${earthData.revolution.replace(/[\d.]+/, '').trim()}`
+                                        : ''}
+                                </p>
+                            </div>
+
+                            <div className='border border-gray-500 p-6'>
+                                <p className='text-gray-400 tracking-wide uppercase font-bold'>
+                                Radius
+                                </p>
+                                <p className='text-white mt-2 text-[40px] uppercase tracking-wide font-bold'>
+                                    {earthData?.radius}
+                                </p>
+                            </div>
+
+                            <div className='border border-gray-500 p-6'>
+                                <p className='text-gray-400 tracking-wide uppercase font-bold'>
+                                Average Temp
+                                </p>
+                                <p className='text-white mt-2 text-[40px] uppercase tracking-wide font-bold'>
+                                    {earthData?.temperature}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 ) : (
