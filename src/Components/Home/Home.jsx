@@ -7,7 +7,7 @@ const Home = ({ selectedPlanet, buttonColor }) => {
     const [activeButton, setActiveButton] = useState('overview');
     const [animationKey, setAnimationKey] = useState(0);
 
-    console.log(buttonColor);
+    const buttonBackgroundColor = buttonColor || '#fff';
 
     useEffect(() => {
         fetch('/data.json')
@@ -97,10 +97,10 @@ const Home = ({ selectedPlanet, buttonColor }) => {
                                 <div className="menus font-antonio mt-6">
                                     <button
                                         onClick={() => handleButtonClick('overview')}
-                                        className="py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500"
+                                        className="py-3 px-8 flex gap-8 items-center w-full mb-4 cursor-pointer hover:scale-105 transition duration-500"
                                         style={{
-                                            backgroundColor: activeButton === 'overview' ? buttonColor : 'transparent',
-                                            border: activeButton === 'overview' ? 'none' : '1px solid #gray',
+                                            backgroundColor: activeButton === 'overview' ? buttonBackgroundColor : 'transparent',
+                                            border: activeButton === 'overview' ? `2px solid ${buttonBackgroundColor}` : `1px solid ${buttonBackgroundColor}`,
                                         }}
                                     >
                                         <p className="text-gray-400 tracking-widest font-bold">01</p>
@@ -109,10 +109,10 @@ const Home = ({ selectedPlanet, buttonColor }) => {
 
                                     <button
                                         onClick={() => handleButtonClick('internal')}
-                                        className="py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500"
+                                        className="py-3 px-8 flex gap-8 items-center w-full mb-4 cursor-pointer hover:scale-105 transition duration-500"
                                         style={{
-                                            backgroundColor: activeButton === 'internal' ? buttonColor : 'transparent',
-                                            border: activeButton === 'internal' ? 'none' : '1px solid #gray',
+                                            backgroundColor: activeButton === 'internal' ? buttonBackgroundColor : 'transparent',
+                                            border: activeButton === 'internal' ? `2px solid ${buttonBackgroundColor}` : `1px solid ${buttonBackgroundColor}`,
                                         }}
                                     >
                                         <p className="text-gray-400 tracking-widest font-bold">02</p>
@@ -121,17 +121,16 @@ const Home = ({ selectedPlanet, buttonColor }) => {
 
                                     <button
                                         onClick={() => handleButtonClick('geology')}
-                                        className="py-3 px-8 flex gap-8 items-center border w-full mb-4 cursor-pointer hover:scale-105 transition duration-500"
+                                        className="py-3 px-8 flex gap-8 items-center w-full mb-4 cursor-pointer hover:scale-105 transition duration-500"
                                         style={{
-                                            backgroundColor: activeButton === 'geology' ? buttonColor : 'transparent',
-                                            border: activeButton === 'geology' ? 'none' : '1px solid #gray',
+                                            backgroundColor: activeButton === 'geology' ? buttonBackgroundColor : 'transparent',
+                                            border: activeButton === 'geology' ? `2px solid ${buttonBackgroundColor}` : `1px solid ${buttonBackgroundColor}`,
                                         }}
                                     >
                                         <p className="text-gray-400 tracking-widest font-bold">03</p>
                                         <p className="text-white text-[18px] uppercase tracking-widest font-bold">Surface Geology</p>
                                     </button>
                                 </div>
-
                             </div>
                         </div>
 
