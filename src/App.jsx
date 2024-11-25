@@ -18,10 +18,7 @@ function App() {
 
     return (
         <>
-            <Navbar
-                selectedPlanet={selectedPlanet}
-                setSelectedPlanet={setSelectedPlanet}
-            />
+            <Navbar onPlanetChange={setSelectedPlanet} />
             <Home selectedPlanet={selectedPlanet} buttonColor={selectedColor} />
         </>
     );
