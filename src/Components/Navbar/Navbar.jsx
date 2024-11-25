@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ onPlanetChange }) => {
     const [items, setItems] = useState([]);
+    const [activePlanet, setActivePlanet] = useState("Earth");
 
     useEffect(() => {
         fetch('/data.json')
@@ -21,6 +22,11 @@ const Navbar = () => {
         Neptune: '#3b89ff',
     };
 
+    const handlePlanetClick = (planet) => {
+        setActivePlanet(planet);
+        onPlanetChange(planet); 
+    };
+
     return (
         <div className="bg-[#070724] h-[14vh] flex items-center">
             <div className="w-[95%] mx-auto flex justify-between items-center">
@@ -34,23 +40,22 @@ const Navbar = () => {
                     {items?.map((item) => (
                         <div
                             key={item.name}
-                            className="relative group flex-1 text-center uppercase font-spartan text-[13px] text-[#bfc2c7] font-bold tracking-wider cursor-pointer transition duration-75 ease-in-out h-full p-6"
+                            className={`relative group flex-1 text-center uppercase font-spartan text-[13px] font-bold tracking-wider cursor-pointer h-full p-6 transition-all duration-75 ease-in-out ${
+                                activePlanet === item.name
+                                    ? "text-white"
+                                    : "text-[#bfc2c7]"
+                            }`}
+                            onClick={() => handlePlanetClick(item.name)}
+                            style={{
+                                borderBottom: activePlanet === item.name
+                                    ? `5px solid ${colors[item.name] || '#bfc2c7'}`
+                                    : "none",
+                            }}
                         >
-                            <div
-                                className="absolute inset-x-0 -top-2 h-[5px] w-0 bg-transparent group-hover:w-full group-hover:bg-current transition-all duration-300 ease-in-out"
-                                style={{
-                                    backgroundColor: colors[item.name] || '#bfc2c7',
-                                }}
-                            ></div>
-
-                            <span className="relative z-10 group-hover:text-white">
-                                {item.name}
-                            </span>
+                            {item.name}
                         </div>
                     ))}
                 </div>
-
-
             </div>
         </div>
     );
