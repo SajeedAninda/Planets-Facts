@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import hamburgerIcon from "../../assets/icon-hamburger.svg";
+import hamburgerIcon from "../../../public/assets/icon-hamburger.svg";
 
 const Navbar = ({ onPlanetChange }) => {
     const [items, setItems] = useState([]);

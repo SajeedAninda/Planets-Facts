@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './home.css';
-import sourceIcon from '../../assets/icon-source.svg';
+import sourceIcon from '../../../public/assets/icon-source.svg';
 
 const Home = ({ selectedPlanet, buttonColor }) => {
     const [planetData, setPlanetData] = useState(null);
