@@ -135,30 +135,30 @@ const Home = ({ selectedPlanet, buttonColor }) => {
                         </div>
 
                         <div className="bottomDiv mt-12 grid grid-cols-1 lg:grid-cols-4 font-antonio gap-8">
-                            <div className="border border-gray-500 p-6">
+                            <div className="border border-gray-500 p-4 md:p-6">
                                 <p className="text-gray-400 tracking-wide uppercase font-bold">Rotation Time</p>
-                                <p className="text-white mt-2 text-[40px] uppercase tracking-wide font-bold">
+                                <p className="text-white mt-2 text-[28px] md:text-[34px] lg:text-[40px] uppercase tracking-wide font-bold">
                                     {planetData.rotation}
                                 </p>
                             </div>
 
-                            <div className="border border-gray-500 p-6">
+                            <div className="border border-gray-500 p-4 md:p-6">
                                 <p className="text-gray-400 tracking-wide uppercase font-bold">Revolution Time</p>
-                                <p className="text-white mt-2 text-[40px] uppercase tracking-wide font-bold">
+                                <p className="text-white mt-2 text-[28px] md:text-[34px] lg:text-[40px] uppercase tracking-wide font-bold">
                                     {planetData.revolution}
                                 </p>
                             </div>
 
-                            <div className="border border-gray-500 p-6">
+                            <div className="border border-gray-500 p-4 md:p-6">
                                 <p className="text-gray-400 tracking-wide uppercase font-bold">Radius</p>
-                                <p className="text-white mt-2 text-[40px] uppercase tracking-wide font-bold">
+                                <p className="text-white mt-2 text-[28px] md:text-[34px] lg:text-[40px] uppercase tracking-wide font-bold">
                                     {planetData.radius}
                                 </p>
                             </div>
 
-                            <div className="border border-gray-500 p-6">
+                            <div className="border border-gray-500 p-4 md:p-6">
                                 <p className="text-gray-400 tracking-wide uppercase font-bold">Average Temp</p>
-                                <p className="text-white mt-2 text-[40px] uppercase tracking-wide font-bold">
+                                <p className="text-white mt-2 text-[28px] md:text-[34px] lg:text-[40px] uppercase tracking-wide font-bold">
                                     {planetData.temperature}
                                 </p>
                             </div>
