@@ -61,8 +61,8 @@ const Home = ({ selectedPlanet, buttonColor }) => {
             <div className="w-[80%] mx-auto">
                 {planetData ? (
                     <div>
-                        <div className="topDiv flex gap-6">
-                            <div className="relative imgDiv w-[65%] px-10">
+                        <div className="topDiv flex flex-col lg:flex-row gap-6">
+                            <div className="relative imgDiv w-full lg:w-[65%] px-10">
                                 <img
                                     src={image}
                                     alt={planetData.name}
@@ -78,9 +78,9 @@ const Home = ({ selectedPlanet, buttonColor }) => {
                                 )}
                             </div>
 
-                            <div className="textDiv w-[35%] text-white">
-                                <h1 className="text-[80px] font-antonio uppercase mb-4">{planetData.name}</h1>
-                                <p className="font-spartan leading-7 text-[#bfc2c7] font-semibold mb-4">{text}</p>
+                            <div className="textDiv w-full lg:w-[35%] text-white">
+                                <h1 className="text-[80px] text-center lg:text-left font-antonio uppercase mb-4">{planetData.name}</h1>
+                                <p className="font-spartan text-center lg:text-left leading-7 text-[#bfc2c7] font-semibold mb-4">{text}</p>
                                 <span className="flex gap-2 items-center text-gray-500 font-semibold mb-4">
                                     <p>Source:</p>
                                     <a
