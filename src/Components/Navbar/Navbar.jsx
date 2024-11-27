@@ -27,7 +27,7 @@ const Navbar = ({ onPlanetChange }) => {
     const handlePlanetClick = (planet) => {
         setActivePlanet(planet);
         onPlanetChange(planet);
-        setIsSidebarOpen(false);
+        setIsSidebarOpen(false); 
     };
 
     const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -35,7 +35,7 @@ const Navbar = ({ onPlanetChange }) => {
 
     return (
         <div className="bg-[#070724] h-[14vh] flex items-center">
-            <div className="w-[95%] lg:w-[90%] mx-auto flex justify-between items-center">
+            <div className="w-[85%] lg:w-[95%] mx-auto flex justify-between items-center">
                 <div className="logo">
                     <p className="text-[28px] text-white font-antonio font-semibold">
                         THE PLANETS
@@ -57,6 +57,12 @@ const Navbar = ({ onPlanetChange }) => {
                                     : "none",
                             }}
                         >
+                            <span
+                                className="absolute left-0 right-0 top-0 h-1 transition-all duration-300 ease-in-out opacity-0 group-hover:opacity-100"
+                                style={{
+                                    backgroundColor: colors[item.name] || '#bfc2c7',
+                                }}
+                            ></span>
                             {item.name}
                         </div>
                     ))}
@@ -68,7 +74,7 @@ const Navbar = ({ onPlanetChange }) => {
             </div>
 
             <div
-                className={`fixed top-0 left-0 h-full w-3/4 bg-[#070724] z-50 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+                className={`fixed top-0 left-0 h-screen w-3/4 bg-[#070724] z-50 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
                     }`}
             >
                 <div className="flex flex-col px-8 py-6 space-y-8">
