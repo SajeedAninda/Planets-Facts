@@ -4,6 +4,7 @@ import hamburgerIcon from "../../assets/icon-hamburger.svg";
 const Navbar = ({ onPlanetChange }) => {
     const [items, setItems] = useState([]);
     const [activePlanet, setActivePlanet] = useState("Earth");
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     useEffect(() => {
         fetch('/data.json')
@@ -26,7 +27,11 @@ const Navbar = ({ onPlanetChange }) => {
     const handlePlanetClick = (planet) => {
         setActivePlanet(planet);
         onPlanetChange(planet);
+        setIsSidebarOpen(false);
     };
+
+    const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+    const closeSidebar = () => setIsSidebarOpen(false);
 
     return (
         <div className="bg-[#070724] h-[14vh] flex items-center">
@@ -58,9 +63,34 @@ const Navbar = ({ onPlanetChange }) => {
                 </div>
 
                 <div className="hamburgerIcon lg:hidden">
-                    <img src={hamburgerIcon} alt="" />
+                    <img src={hamburgerIcon} alt="Menu" onClick={toggleSidebar} />
                 </div>
             </div>
+
+            <div
+                className={`fixed top-0 left-0 h-full w-3/4 bg-[#070724] z-50 transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+                    }`}
+            >
+                <div className="flex flex-col px-8 py-6 space-y-8">
+                    {items?.map((item) => (
+                        <div
+                            key={item.name}
+                            className={`text-white uppercase font-spartan text-[16px] font-bold tracking-wide cursor-pointer ${activePlanet === item.name ? "text-white" : "text-[#bfc2c7]"
+                                }`}
+                            onClick={() => handlePlanetClick(item.name)}
+                        >
+                            {item.name}
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {isSidebarOpen && (
+                <div
+                    className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-40"
+                    onClick={closeSidebar}
+                ></div>
+            )}
         </div>
     );
 };
