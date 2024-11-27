@@ -73,13 +73,13 @@ const Home = ({ selectedPlanet, buttonColor }) => {
                                     <img
                                         src={overlayImage}
                                         alt="Geology Overlay"
-                                        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[150px]"
+                                        className="absolute -bottom-8 lg:bottom-0 left-1/2 transform -translate-x-1/2 w-[100px] lg:w-[150px]"
                                     />
                                 )}
                             </div>
 
                             <div className="textDiv w-full lg:w-[35%] text-white">
-                                <h1 className="text-[80px] text-center lg:text-left font-antonio uppercase mb-4">{planetData.name}</h1>
+                                <h1 className="text-[60px] md:text-[65px] lg:text-[80px] text-center lg:text-left font-antonio uppercase mb-4">{planetData.name}</h1>
                                 <p className="font-spartan text-center lg:text-left leading-7 text-[#bfc2c7] font-semibold mb-4">{text}</p>
                                 <span className="flex gap-2 items-center text-gray-500 font-semibold mb-4">
                                     <p>Source:</p>
